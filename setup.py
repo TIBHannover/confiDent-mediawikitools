@@ -18,8 +18,8 @@ setup(
     long_description=README,
     long_description_content_type='text/markdown',
     classifiers=['Programming Language :: Python',
-        'Programming Language :: Python :: 3.7' ],
+                 'Programming Language :: Python :: 3.7'],
     keywords='mediawiki wikipedia',
     install_requires=['mwclient'],
+    test_require=['pytest']
 )
-

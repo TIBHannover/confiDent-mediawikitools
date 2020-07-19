@@ -17,7 +17,7 @@ def yaml_get_source(file_: str) -> Dict:
         path = Path(__file__).parent.parent.parent
         path_file = path / file_
     else:
-        path_file = Path(Path.cwd())/file_
+        path_file = Path(Path.cwd()) / file_
     yamldict = yaml2dict(path_file)
     return yamldict
 

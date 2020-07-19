@@ -1,2 +1,5 @@
 mwclient
 pyyaml
+tox
+flake8
+pytest
