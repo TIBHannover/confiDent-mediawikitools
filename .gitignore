@@ -1,0 +1,13 @@
+# pycharm (IDE) dir
+.idea/
+venv/
+.ipynb_checkpoints
+schemaParse/__pycache__/
+**__pycache__**
+*.egg-info/*
+/.tox/
+wikidetails.yml
+testwiki.py
+build
+dist
+mediawikitools.egg-info
