@@ -13,7 +13,7 @@ def yaml2dict(path: str) -> Dict:
 def yaml_get_source(file_: str) -> Dict:
     # file in application root: mediawiki/
     path = Path.cwd()
-    if 'utilities' in str(path):
+    if '/mediawikitools/mediawikitools/' in str(path):
         path = Path(__file__).parent.parent.parent
         path_file = path / file_
     else:
