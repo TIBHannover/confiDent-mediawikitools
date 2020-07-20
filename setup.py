@@ -21,6 +21,6 @@ setup(
     classifiers=['Programming Language :: Python',
                  'Programming Language :: Python :: 3.7'],
     keywords='mediawiki wikipedia',
-    install_requires=['mwclient'],
+    install_requires=['mwclient', 'pyyaml'],
     test_require=['pytest']
 )
