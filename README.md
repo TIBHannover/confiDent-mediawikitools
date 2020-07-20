@@ -12,8 +12,16 @@ copy `wikidetails.template.yml` as `wikidetails.yml` and fill in bot name and pa
 ### Generate distribution packages
 `python setup.py bdist_wheel`
 
-### Import to another script
+### Import as package, in another script
 `pip install path/to/mediawikitools/dist/mediawikitools-0.1.0-py3-none-any.whl`
+
+Ensure: `wikidetails.yml` is in the root dir of the new script 
+
+```python
+from mediawikitools.wiki import actions
+actions.edit(page='Test', content='test from another script')
+```
+
 
 ## run tests
 `tox`

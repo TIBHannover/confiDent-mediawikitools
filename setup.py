@@ -11,7 +11,8 @@ setup(
     packages=['mediawikitools', 'mediawikitools/wiki',
               'mediawikitools/utilities'],
     url='',
-    license='MIT License', author='Andre Castro',
+    license='MIT License',
+    author='Andre Castro',
     author_email='andre.castro@tib.eu',
     description='A series of Python mwclient library wrappers, to perform '
                 'actions in Mediawiki instances',
