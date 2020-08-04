@@ -24,11 +24,19 @@ actions.edit(page='Test', content='test from another script')
 
 
 ## run tests
-`tox`
+`tox`<br/>
 will run tests and detect flake8s
 
-`python -m pytest`
-will only run the tests/test*.py
+`python -m pytest`<br/>
+will run the tests/test*.py
 
-`flake8 somefile`
+**pytest optional aguments**
+
+`python -m pytest -m read`<br/>
+* Second `-m` stands for marker; currently test use markers: read, write
+* `-s` show print statements as they are executed in stdout
+*  `--log-cli-level` log level. Option: DEBUG, INFO Default: INFO.   
+
+
+`flake8 somefile`<br/>
 lint checks

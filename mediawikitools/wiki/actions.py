@@ -1,14 +1,36 @@
-from typing import List
+from typing import List, Tuple
 from datetime import datetime
 from mediawikitools.__init__ import site
 
 
-def edit(page: str, content: str, append=False):
-    print(site)
+def read(page: str) -> Tuple[str, str]:
     page = site.pages[page]
-    if append is True:
-        content += '\n\n' + page.text()
-    page.edit(content)
+    if page.exists:
+        return page.text(), page.last_rev_time
+    else:
+        return None, None
+
+
+def edit(page: str, content: str, append=False, newpageonly=False):
+    """
+
+    :param page:
+    :param content:
+    :param append:
+    :param newpageonly:  if True edit only performed in not yet exiting pages
+    :return:
+    """
+    page = site.pages[page]
+    if newpageonly is True and page.exists:
+        # def does nothin if only new pages can be written
+        # and page already exists
+        return
+    if page.text():
+        if append is True:
+            content += '\n\n' + page.text()  # append to existing text
+        page.edit(content)
+    else:
+        page.edit(content)
 
 
 def unpack_ask_response(response):
