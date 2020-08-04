@@ -46,6 +46,7 @@ def test_edit():
     pagename = 'Test'
     actions.edit(page=pagename,
                  content=f'Edit {rstring} by ~~~~',
+                 summary='Testing overwriting',
                  append=False)
     content, lastedit = actions.read(page=pagename)
     assert rstring in content
@@ -54,6 +55,7 @@ def test_edit():
     appendrstring = randstring(10)
     actions.edit(page=pagename,
                  content=f'Edit {appendrstring} by ~~~~',
+                 summary='Testing appending',
                  append=True)
     content, lastedit = actions.read(page=pagename)
     assert appendrstring in content

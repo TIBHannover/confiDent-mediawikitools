@@ -11,26 +11,26 @@ def read(page: str) -> Tuple[str, str]:
         return None, None
 
 
-def edit(page: str, content: str, append=False, newpageonly=False):
+def edit(page: str, content: str, summary='', append=False, newpageonly=False):
     """
-
     :param page:
     :param content:
+    :param summary:
     :param append:
     :param newpageonly:  if True edit only performed in not yet exiting pages
     :return:
     """
     page = site.pages[page]
     if newpageonly is True and page.exists:
-        # def does nothin if only new pages can be written
+        # def does nothing if only new pages can be written
         # and page already exists
         return
     if page.text():
         if append is True:
             content += '\n\n' + page.text()  # append to existing text
-        page.edit(content)
+        page.edit(text=content, summary=summary)
     else:
-        page.edit(content)
+        page.edit(text=content, summary=summary)
 
 
 def unpack_ask_response(response):
