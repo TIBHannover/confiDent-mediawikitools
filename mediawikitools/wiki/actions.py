@@ -21,16 +21,20 @@ def edit(page: str, content: str, summary='', append=False, newpageonly=False):
     :return:
     """
     page = site.pages[page]
-    if newpageonly is True and page.exists:
-        # def does nothing if only new pages can be written
-        # and page already exists
-        return
-    if page.text():
-        if append is True:
-            content += '\n\n' + page.text()  # append to existing text
-        page.edit(text=content, summary=summary)
+    if page.can('edit'):
+        if newpageonly is True and page.exists:
+            # def does nothing if only new pages can be written
+            # and page already exists
+            return False
+        if page.text():
+            if append is True:
+                content += '\n\n' + page.text()  # append to existing text
+            page.edit(text=content, summary=summary)
+        else:
+            page.edit(text=content, summary=summary)
+        return True
     else:
-        page.edit(text=content, summary=summary)
+        return False
 
 
 def unpack_ask_response(response):
