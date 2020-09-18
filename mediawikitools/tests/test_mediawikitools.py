@@ -68,11 +68,12 @@ def test_edit():
                  newpageonly=True)
     assert newrstring not in content
 
+
 @pytest.mark.write
 def test_edit_protected_page():
-    edit_result = actions.edit(page='PIDapalooza', content=f'Edit by ~~~~',
+    edit_result = actions.edit(page='PIDapalooza', content='Edit by ~~~~',
                                summary='Testing writing', append=True)
     assert edit_result is False
-    edit_result = actions.edit(page='Test', content=f'Edit by ~~~~',
+    edit_result = actions.edit(page='Test', content='Edit by ~~~~',
                                summary='Testing writing', append=True)
     assert edit_result is True
